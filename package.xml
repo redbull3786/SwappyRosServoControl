@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>swappy_ros_servo_control</name>
+    <version>1.0.0</version>
+    <description>ServoControl Publisher/Subscriber for Swappy Rover</description>
+    <maintainer email="test@test.com">Sebastian Ehnert</maintainer>
+    <license>BSD-3-Clause</license>
+    <author email="test@test.com">Sebastian Ehnert</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>message_generation</build_depend>
+    <depend>roscpp</depend>
+    <depend>rosconsole</depend>
+    <exec_depend>message_runtime</exec_depend>
+</package>
