@@ -20,7 +20,7 @@ public:
 	Handler(const SpiConfiguration& spiConfig);
 	~Handler();
 
-    void changeAngleAndSpeed(const Device device, const uint8_t angle, const uint8_t speed);
+    void changeAngleAndSpeed(const Device device, const uint8_t angle_degree, const uint16_t speed_ms);
 	void calibrateDevice(const Device device);
 
 private:
@@ -38,6 +38,9 @@ private:
 
     // Commands:
 	void prepairMemory();
+
+    void createChangeAngleAndSpeedRequest(const Device device, const uint8_t angle_degree, const uint16_t speed_ms);
+    ReturnState parseChangeAngleAndSpeedResponse();
 
 	void createCalibrateDeviceRequest(const Device device);
 	ReturnState parseCalibrateDeviceResponse(); 
