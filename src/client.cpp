@@ -46,11 +46,11 @@ ClientConfiguration parseArguments(int argc, char **argv)
 
       if (argument.Key == std::string("NodeName"))
       {
-         tmp.NodeName = argument.Value; //"SensorHClientFront";
+         tmp.NodeName = argument.Value; //"SercoControlClient";
       }
       else if (argument.Key == std::string("SubscriberName"))
       {
-         tmp.SubscriberName = argument.Value; //"frontSensors";
+         tmp.SubscriberName = argument.Value; //"servos";
       }
       else if (argument.Key == std::string("SpiDevice"))
       {
