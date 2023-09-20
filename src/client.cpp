@@ -18,10 +18,11 @@
  ***********************************************************/
 
 #include "ros/ros.h"
-#include "swappy_ros_servo_control/ServoControlState.h"
 #include "configuration/ClientConfiguration.hpp"
 #include <ros/console.h>
 #include "Arguments.hpp"
+#include "protocol/Handler.hpp"
+#include "Wrapper.hpp"
 
 Arguemnts getKeyValue(const std::string& arg)
 {
@@ -63,11 +64,6 @@ ClientConfiguration parseArguments(int argc, char **argv)
    return tmp;   
 }
 
-void servoCallback(const swappy_ros_servo_control::ServoControlState::ConstPtr& msg)
-{
-  
-}
-
 int main(int argc, char **argv)
 {
    // This needs to happen before we start fooling around with logger levels.  Otherwise the level we set may be overwritten by
@@ -80,8 +76,11 @@ int main(int argc, char **argv)
 
    ros::init(argc, argv, config.NodeName);
 
+   Handler handler(config.SpiConfig);
+   Wrapper wrapper(handler);
+
    ros::NodeHandle n;
-   ros::Subscriber sub = n.subscribe(config.SubscriberName, 1000, servoCallback);
+   ros::Subscriber sub = n.subscribe(config.SubscriberName, 1000, &Wrapper::servoCallback, &wrapper);
 
    ros::spin();
 

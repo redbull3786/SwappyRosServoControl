@@ -39,5 +39,5 @@ file (GLOB SRC_FILES
 #target_link_libraries(${PROJECT_NAME}_node ${catkin_LIBRARIES})
 
 ## Client
-add_executable(${PROJECT_NAME}_client src/client.cpp ${SRC_FILES})
+add_executable(${PROJECT_NAME}_client src/client.cpp src/Wrapper.cpp ${SRC_FILES})
 target_link_libraries(${PROJECT_NAME}_client ${catkin_LIBRARIES})

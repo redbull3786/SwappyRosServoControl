@@ -8,6 +8,9 @@
  *  
  ***********************************************************/
 
+#ifndef PROTOCOL_HANDLER_HPP
+#define PROTOCOL_HANDLER_HPP
+
 #include <inttypes.h>
 #include <string>
 #include "Device.hpp"
@@ -45,3 +48,5 @@ private:
 	void createCalibrateDeviceRequest(const Device device);
 	ReturnState parseCalibrateDeviceResponse(); 
 };
+
+#endif // - PROTOCOL_HANDLER_HPP
