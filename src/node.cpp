@@ -70,6 +70,11 @@ void printServoState(const swappy_ros_servo_control::ServoControlState& msg)
    ROS_DEBUG("Servo8: {ActiveMode: %d Angle[deg]: %d Speed[ms]: %d}", msg.Servo8.ActiveMode, msg.Servo8.Angle, msg.Servo8.Speed);
 }
 
+swappy_ros_servo_control::ServoControlState createTestData()
+{
+   return swappy_ros_servo_control::ServoControlState();
+}
+
 int main(int argc, char **argv)
 {
    // This needs to happen before we start fooling around with logger levels.  Otherwise the level we set may be overwritten by
@@ -89,6 +94,7 @@ int main(int argc, char **argv)
    while (ros::ok())
    {
       swappy_ros_servo_control::ServoControlState msg;
+      msg = createTestData();
    
       node_pub.publish(msg);
 
